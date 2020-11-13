@@ -13,6 +13,7 @@ import dev.luizfelipe.androidcore_digitalhouse.data.Prato
 import dev.luizfelipe.androidcore_digitalhouse.data.PratoClickListener
 import dev.luizfelipe.androidcore_digitalhouse.data.Restaurante
 import dev.luizfelipe.androidcore_digitalhouse.data.PratoAdapter
+import dev.luizfelipe.androidcore_digitalhouse.ui.restaurante.prato.PratoActivity
 
 class RestauranteActivity : AppCompatActivity(), PratoClickListener {
 
@@ -42,6 +43,10 @@ class RestauranteActivity : AppCompatActivity(), PratoClickListener {
 
     override fun onPratoClickListener(item: Prato): View.OnClickListener =
         View.OnClickListener { v ->
+            val intent = Intent(v?.context, PratoActivity::class.java)
+            intent.putExtra("data", item)
+            startActivity(intent)
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
         }
 
     override fun onBackPressed() {
