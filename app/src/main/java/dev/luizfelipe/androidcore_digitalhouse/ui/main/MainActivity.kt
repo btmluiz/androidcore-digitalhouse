@@ -11,6 +11,7 @@ import dev.luizfelipe.androidcore_digitalhouse.data.Prato
 import dev.luizfelipe.androidcore_digitalhouse.data.Restaurante
 import dev.luizfelipe.androidcore_digitalhouse.data.RestauranteAdapter
 import dev.luizfelipe.androidcore_digitalhouse.data.RestauranteClickListener
+import dev.luizfelipe.androidcore_digitalhouse.ui.restaurante.RestauranteActivity
 
 class MainActivity : AppCompatActivity(), RestauranteClickListener {
 
@@ -120,7 +121,10 @@ class MainActivity : AppCompatActivity(), RestauranteClickListener {
 
     override fun onRestauranteClickListener(item: Restaurante): View.OnClickListener =
         View.OnClickListener { v ->
-
+            val intent = Intent(v?.context, RestauranteActivity::class.java)
+            intent.putExtra("data", item)
+            startActivity(intent)
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
         }
 
     override fun onBackPressed() {
