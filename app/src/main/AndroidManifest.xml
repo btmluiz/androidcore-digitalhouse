@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Androidcoredigitalhouse">
         <activity
+            android:name=".ui.restaurante.prato.PratoActivity"
+            android:theme="@style/Theme.NoActionBar" />
+        <activity
             android:name=".ui.restaurante.RestauranteActivity"
             android:theme="@style/Theme.NoActionBar" />
         <activity
